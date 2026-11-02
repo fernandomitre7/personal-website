@@ -49,8 +49,6 @@ details[open] summary::before { transform: rotate(45deg) translate(-1px, -1px); 
 .layer ul { margin: 0 0 1em; padding-left: 1.1rem; }
 .layer li { margin-bottom: .55em; }
 .layer li::marker { color: var(--marigold); }
-.layer .stack { margin: 0; }
-.layer .stack b { font-weight: 650; color: #fff; }
 
 .skills { display: grid; grid-template-columns: var(--margin) minmax(0, 44rem); gap: .9rem var(--gap); margin: 0; }
 dt { padding-top: .1rem; font-size: .9375rem; font-weight: 600; line-height: 1.5; }
@@ -81,7 +79,6 @@ button:disabled { opacity: .6; cursor: not-allowed; }
   .story { display: block; }
   h1 { margin-top: 0; font-size: 34pt; }
   .layer { background: none; color: var(--ink); border: 0; padding: 0; }
-  .layer .stack b { color: var(--ink); }
   .entry, .project { break-inside: avoid; }
 }
 
