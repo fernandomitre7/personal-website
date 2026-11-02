@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fernando Mitre, software engineer</title>
-<meta name="description" content="Fernando Mitre is a product-minded software engineer from Saltillo, Mexico, with six years at Meta working on the WhatsApp Business App.">
+<meta name="description" content="Fernando Mitre is a product-minded software engineer from Saltillo, Mexico, with six years at Meta, most recently working on the WhatsApp Business App.">
 <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
@@ -27,30 +27,39 @@
 </head>
 <body>
 <div class="page">
+  <svg id="thread" aria-hidden="true"><path id="thread-path"/></svg>
   <nav class="lang" aria-label="Language">
     <span aria-current="true">English</span>
     <a href="#" hreflang="es" lang="es">Español</a>
   </nav>
 
   <main>
-    <h1>Fernando Mitre</h1>
+    <h1>Fernando Mitre<span class="dot start"></span></h1>
 
     <div class="story">
       <div>
-        <p>I'm from Saltillo, Coahuila, in Mexico. I studied Digital Systems and Robotics Engineering at Tec de Monterrey, a very low-level, electronics-heavy degree, and somewhere along the way I fell in love with software.</p>
-        <p>Software took me to Monterrey, Querétaro, Tijuana, San Diego and Silicon Valley, where I've spent the last six years at Meta, in a product-focused team making the WhatsApp Business App more useful to businesses. I've been lucky to work on many different business-focused products, learning how to build a product from each of them.</p>
+        <p>I'm from Mexico (Saltillo, Coahuila). I studied Digital Systems and Robotics Engineering at Tec de Monterrey, a very low-level, electronics-heavy degree, and somewhere along the way I fell in love with software.</p>
+        <p>Software took me to Monterrey, Querétaro, Tijuana, San Diego and Silicon Valley, where I've spent the last six years at Meta, most recently in a product-focused team making the WhatsApp Business App more useful to businesses. I've been lucky to work on many different business-focused products, learning how to build a product from each of them.</p>
         <p>I also like starting things of my own. I co-owned a restaurant-bar in Saltillo and co-founded a non-profit that used mobile technology to improve citizen participation.</p>
       </div>
       <div class="photo" role="img" aria-label="Photo placeholder">Photo placeholder</div>
     </div>
 
     <ul class="places" aria-label="Places I have lived, in order">
-      <li>Saltillo</li><li>Monterrey</li><li>Querétaro</li><li>Tijuana</li><li>San Diego</li><li>Silicon Valley</li>
+      <li class="stop flip" style="--x:72.31%;--y:67.05%;--dx:-4px;--dy:3px"><span class="dot"></span><b>Saltillo</b></li>
+      <li class="stop " style="--x:74.43%;--y:65.86%;--dx:5px;--dy:-3px"><span class="dot"></span><b>Monterrey</b></li>
+      <li class="stop " style="--x:74.18%;--y:90.05%;--dx:0px;--dy:0px"><span class="dot"></span><b>Querétaro</b></li>
+      <li class="stop " style="--x:22.95%;--y:33.19%;--dx:0px;--dy:8px"><span class="dot"></span><b>Tijuana</b></li>
+      <li class="stop " style="--x:22.58%;--y:32.29%;--dx:0px;--dy:-8px"><span class="dot"></span><b>San Diego</b></li>
+      <li class="stop " style="--x:7.14%;--y:9.76%;--dx:0px;--dy:0px"><span class="dot"></span><b>Silicon Valley</b></li>
     </ul>
 
+
     <section aria-labelledby="education">
+      <span class="dot"></span>
       <h2 id="education">Education</h2>
       <div class="entry">
+        <span class="dot"></span>
         <div class="date">2008–2013</div>
         <div class="body">
           <p class="role">B.S. Digital Systems and Robotics Engineering</p>
@@ -58,6 +67,7 @@
         </div>
       </div>
       <div class="entry">
+        <span class="dot"></span>
         <div class="date">2012</div>
         <div class="body">
           <p class="role">International exchange</p>
@@ -65,6 +75,7 @@
         </div>
       </div>
       <div class="entry">
+        <span class="dot"></span>
         <div class="date">Nov 2022</div>
         <div class="body">
           <p class="role">Product Management Accelerated Program</p>
@@ -74,73 +85,78 @@
     </section>
 
     <section aria-labelledby="experience">
+      <span class="dot"></span>
       <h2 id="experience">Experience</h2>
 
       <article class="entry">
+        <span class="dot"></span>
         <div class="date">Sep 2020–now</div>
         <div class="body">
           <p class="role">Meta <span>Senior Software Engineer</span></p>
           <p class="where">Menlo Park, California</p>
 
           <div class="project">
+            <span class="dot"></span>
             <h3>WhatsApp Business subscriptions</h3>
-            <p>Meta Verified and Meta One are paid plans that give businesses extra features on WhatsApp. I worked on tracking how much of each limited benefit a business has used, and on the custom web page that helps customers find a business and contact it.</p>
+            <p class="lead">I work on the <a href="https://faq.whatsapp.com/3872729742954601">Meta Verified</a> and <a href="https://whatsappbusiness.com/products/business-app-meta-one/">Meta One</a> subscriptions, which give businesses extra features in the WhatsApp Business App. My work spans the whole stack: the subscription infrastructure itself, plus some of the benefits, including the <a href="https://faq.whatsapp.com/3240917596147164">custom web page</a> and the metering behind benefits that have a quota or limit.</p>
             <details>
-              <summary>Technical detail</summary>
+              <summary><span class="when-closed">Details</span><span class="when-open">Hide details</span></summary>
               <div class="layer">
                 <ul>
-                  <li>Designed and built the metering service that enforces benefit quotas across multiple providers, for a subscription used by hundreds of thousands of businesses. Scoped the work across 3 engineers.</li>
-                  <li>Integrated metering into the full subscription lifecycle, including grace periods, plan changes and cancellations.</li>
-                  <li>Built the backend for custom business web pages in one month for alpha: database schema, CRUD APIs, rate limiting, lifecycle management and billing integration. 85% test coverage, no critical production issues, and over 65% adoption among eligible subscribers.</li>
+                  <li>Part of a product-focused team working across the stack, focused on backend and iOS.</li>
+                  <li>Worked across the entire software development lifecycle, leading experiments with cross-functional partners to drive data-based product launches.</li>
+                  <li>Led the metering infrastructure needed to enforce benefits that have quotas or limits.</li>
+                  <li>Integrated benefits into the full subscription lifecycle, including grace periods, plan changes and cancellations.</li>
+                  <li>Led multiple projects that required leading cross-functional teams and coordinating across organizations, including financial engineering and other Meta orgs.</li>
                 </ul>
-                <p class="stack"><b>Used:</b> Hack/PHP, Erlang, distributed counting for rate limits, TTL-based entity lifecycle.</p>
               </div>
             </details>
           </div>
 
           <div class="project">
+            <span class="dot"></span>
             <h3>Business Broadcast in the WhatsApp Business App</h3>
-            <p>Lets a business send a message to many customers at once, for a fee. I worked on pricing and billing, and on a way to check the numbers that respected privacy limits, which cleared the product for wide release.</p>
+            <p class="lead"><a href="https://faq.whatsapp.com/1711086883148106">Business Broadcast</a> is a new paid messaging product built from the ground up, bringing businesses more useful features than regular broadcast lists. I worked on the features and on pricing and billing, designed privacy-aware metering and logging, and iterated over multiple experiments.</p>
             <details>
-              <summary>Technical detail</summary>
+              <summary><span class="when-closed">Details</span><span class="when-open">Hide details</span></summary>
               <div class="layer">
                 <ul>
-                  <li>Designed a client-side logging pipeline to validate metrics after server-side approaches were ruled out by privacy constraints. Coordinated approval across engineering, legal and privacy review. Millions of events processed across the global rollout.</li>
-                  <li>Built backend verification services, integration test tooling that generates events at scale, and production runbooks.</li>
-                  <li>Took over deploying a new pricing and billing pipeline with no production-engineering support: capacity planning, container orchestration and key-value store provisioning. Later automated rate-card creation to support geographic expansion.</li>
+                  <li>Implemented privacy-aware metering for Business Broadcast, designing for correctness and efficiency.</li>
+                  <li>Owned the pricing infrastructure and built the billing pipeline.</li>
+                  <li>Built a privacy-aware logging pipeline for metric verification.</li>
+                  <li>Coordinated approval across engineering, legal and privacy reviews, working with cross-functional teams from design to launch.</li>
                 </ul>
-                <p class="stack"><b>Used:</b> real-time data pipelines, container orchestration, distributed key-value stores, time-series monitoring.</p>
               </div>
             </details>
           </div>
 
           <div class="project">
+            <span class="dot"></span>
             <h3>Subscription infrastructure for the WhatsApp consumer app</h3>
-            <p>Led a cross-functional team building WhatsApp's first consumer-subscription infrastructure: the systems that let someone buy a subscription in the app and keep it active.</p>
+            <p class="lead">Led a cross-functional team building the first Meta Subscription in the WhatsApp consumer app.</p>
             <details>
-              <summary>Technical detail</summary>
+              <summary><span class="when-closed">Details</span><span class="when-open">Hide details</span></summary>
               <div class="layer">
                 <ul>
                   <li>Technical lead for a 6-engineer workstream across iOS, backend and infrastructure. Owned timelines and execution.</li>
                   <li>Personally built the iOS in-app purchase flow, the backend subscription-state API and notification delivery.</li>
                   <li>Worked with platform and payment teams, and through Apple App Store review requirements.</li>
                 </ul>
-                <p class="stack"><b>Used:</b> Swift, Apple StoreKit2, Hack/PHP, asynchronous job processing.</p>
               </div>
             </details>
           </div>
 
           <div class="project">
+            <span class="dot"></span>
             <h3>Messaging infrastructure across mobile apps</h3>
-            <p>My first years at Meta: shared parts of messaging used by several apps, such as group membership and how apps manage storage on a phone.</p>
+            <p class="lead">My first years at Meta, on a messaging platform team in the Messenger organization. I helped bring end-to-end encrypted messaging infrastructure to Messenger and Instagram.</p>
             <details>
-              <summary>Technical detail</summary>
+              <summary><span class="when-closed">Details</span><span class="when-open">Hide details</span></summary>
               <div class="layer">
                 <ul>
-                  <li>Designed group-membership features aligned across 4 product surfaces, and storage-management APIs for disk pressure.</li>
-                  <li>Coordinated a write-path SDK migration across all partner apps, and unified iOS bootstrapping code.</li>
+                  <li>Designed the low-level SDK implementation of group membership, used across iOS and Android, and media-storage management APIs for disk pressure.</li>
+                  <li>Coordinated a write-path SDK migration across all apps.</li>
                 </ul>
-                <p class="stack"><b>Used:</b> Swift, Objective-C, C++.</p>
               </div>
             </details>
           </div>
@@ -148,75 +164,69 @@
       </article>
 
       <article class="entry">
+        <span class="dot"></span>
         <div class="date">Oct 2019–Sep 2020</div>
         <div class="body">
           <p class="role">KaiOS Technologies <span>Full-Stack Software Engineer</span></p>
           <p class="where">San Diego, California</p>
-          <p>Worked on payments and the services behind the KaiOS App Store and developer portal.</p>
+          <p class="lead">Worked on payments and the services behind the KaiOS App Store and developer portal.</p>
           <details>
-            <summary>Technical detail</summary>
+            <summary><span class="when-closed">Details</span><span class="when-open">Hide details</span></summary>
             <div class="layer">
               <ul>
                 <li>Redesigned the Payments API to support paid SMS, direct carrier billing and credit cards across multiple providers.</li>
                 <li>Built and maintained core services behind the app store and developer portal.</li>
               </ul>
-              <p class="stack"><b>Used:</b> Go, Java, Cassandra, Redis, NATS, AWS.</p>
             </div>
           </details>
         </div>
       </article>
 
       <article class="entry">
+        <span class="dot"></span>
         <div class="date">Oct 2016–Sep 2019</div>
         <div class="body">
           <p class="role">Sonata Services <span>KaiOS outsourcing partner</span></p>
           <p class="where">Tijuana, Mexico</p>
           <p>Led the outsourced engineering team building services and tools for the KaiOS developer portal and app submissions.</p>
-          <details>
-            <summary>Technical detail</summary>
-            <div class="layer"><p class="stack"><b>Used:</b> Go, Java, Cassandra, Redis, NATS, AWS, Angular.</p></div>
-          </details>
         </div>
       </article>
 
       <article class="entry">
+        <span class="dot"></span>
         <div class="date">2014–2016</div>
         <div class="body">
           <p class="role">Software Next Door</p>
           <p class="where">Querétaro, Mexico</p>
           <p>Built CloudCaller, a Salesforce AppExchange app with Twilio integration and Stripe billing.</p>
-          <details>
-            <summary>Technical detail</summary>
-            <div class="layer"><p class="stack"><b>Used:</b> Java, Spring, Postgres, Apex, Visualforce, Twilio, Stripe, Heroku.</p></div>
-          </details>
         </div>
       </article>
 
       <article class="entry">
+        <span class="dot"></span>
         <div class="date">2012–2013</div>
         <div class="body">
           <p class="role">MSights</p>
           <p class="where">Monterrey, Mexico</p>
           <p>Maintained Excel add-ins that connected to Salesforce.</p>
-          <details>
-            <summary>Technical detail</summary>
-            <div class="layer"><p class="stack"><b>Used:</b> .NET, WPF, XAML.</p></div>
-          </details>
         </div>
       </article>
     </section>
 
     <section aria-labelledby="ventures">
+      <span class="dot"></span>
       <h2 id="ventures">My own ventures</h2>
       <article class="entry">
+        <span class="dot"></span>
         <div class="date">2019</div>
         <div class="body">
-          <p class="role">Capital SLW <span>Restaurant-bar co-owner</span></p>
+          <p class="role"><a href="https://maps.app.goo.gl/R9sZHU9MshxmL3JRA">Capital SLW</a> <span>Restaurant-bar co-owner</span></p>
           <p class="where">Saltillo, Mexico</p>
           <p>Developed a hospitality venture: co-wrote the business plan, oversaw construction and hiring, and managed menu development.</p>
         </div>
       </article>
       <article class="entry">
+        <span class="dot"></span>
         <div class="date">2017–2018</div>
         <div class="body">
           <p class="role">YoGob.mx <span>Co-founder</span></p>
@@ -227,18 +237,29 @@
     </section>
 
     <section aria-labelledby="skills">
+      <span class="dot"></span>
       <h2 id="skills">Skills</h2>
       <dl class="skills">
-        <dt>Languages</dt><dd>Hack/PHP, Erlang, Swift, Objective-C, Go, TypeScript, JavaScript, Python, Java, C++, SQL</dd>
-        <dt>Backend</dt><dd>GraphQL, Thrift (RPC), REST, asynchronous job processing</dd>
-        <dt>Data, infra</dt><dd>Distributed key-value stores, container orchestration, real-time data pipelines, time-series monitoring, capacity planning</dd>
-        <dt>Mobile</dt><dd>iOS (Swift, Objective-C), in-app purchase (Apple StoreKit2), cross-platform SDK migration</dd>
+        <dt>Languages</dt><dd>Hack/PHP, Erlang, Swift, Objective-C, Go, TypeScript, JavaScript, Python, Java, C++</dd>
+        <dt>Frameworks, services</dt><dd>Node.js, Angular, GraphQL, Thrift (RPC), NATS, asynchronous job processing, Salesforce, Twilio, Stripe</dd>
+        <dt>Databases</dt><dd>Cassandra, Redis, Postgres, MySQL, distributed key-value stores</dd>
+        <dt>Infrastructure</dt><dd>AWS, Cloudflare, Heroku, container orchestration, real-time data pipelines, time-series monitoring, capacity planning</dd>
+        <dt>Mobile</dt><dd>iOS (Swift, Objective-C), in-app purchase (Apple StoreKit2)</dd>
         <dt>Domains</dt><dd>Subscriptions and billing, payments, messaging infrastructure, production engineering, privacy-constrained system design</dd>
-        <dt>Spoken</dt><dd>Spanish (native), English (fluent, TOEFL iBT 97, 2023)</dd>
+      </dl>
+    </section>
+
+    <section aria-labelledby="spoken-languages">
+      <span class="dot"></span>
+      <h2 id="spoken-languages">Spoken Languages</h2>
+      <dl class="skills">
+        <dt>Spanish</dt><dd>Native</dd>
+        <dt>English</dt><dd>Fluent (TOEFL iBT 97, 2023)</dd>
       </dl>
     </section>
 
     <section aria-labelledby="contact">
+      <span class="dot"></span>
       <h2 id="contact">Contact</h2>
       <div class="contact">
         <p>Email address coming soon. <a href="https://linkedin.com/in/fernandomitre7">LinkedIn</a></p>
@@ -249,15 +270,32 @@
           <input id="email" name="email" type="email" autocomplete="email" required>
           <label for="message">Message</label>
           <textarea id="message" name="message" required></textarea>
+          <span class="dot end"></span>
           <button type="submit" disabled>Send message</button>
           <p class="note">Preview: this form isn't connected yet.</p>
         </form>
       </div>
     </section>
   </main>
+
+  <nav class="way" aria-label="Sections">
+    <ol id="way-list" hidden>
+      <li><a href="#top">Intro</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#ventures">My own ventures</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#spoken-languages">Spoken Languages</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+    <button type="button" aria-expanded="false" aria-controls="way-list" aria-label="Sections">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path class="way-menu" d="M5 7h14M5 12h14M5 17h14"/><path class="way-close" d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </nav>
 </div>
 <script>
   addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
 </script>
+<script src="thread.js"></script>
 </body>
 </html>
