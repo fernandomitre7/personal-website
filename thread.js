@@ -131,3 +131,39 @@ addEventListener('scroll', kick, { passive: true });
 new ResizeObserver(rebuild).observe(page);
 document.fonts.ready.then(rebuild);
 rebuild();
+
+const way = document.querySelector('.way');
+const wayButton = way.querySelector('button');
+const wayList = way.querySelector('ol');
+const wayItems = [...wayList.children];
+wayItems.forEach((li, i) => li.style.setProperty('--i', i));
+const wayTargets = wayItems.map(li => document.querySelector(li.firstElementChild.hash));
+
+function wayUpdate() {
+  way.classList.toggle('show', scrollY > innerHeight * .6 || !wayList.hidden);
+  let at = 0;
+  wayTargets.forEach((el, i) => { if (el && el.getBoundingClientRect().top <= innerHeight * .4) at = i; });
+  if (scrollY + innerHeight >= document.documentElement.scrollHeight - 4) at = wayItems.length - 1;
+  wayItems.forEach((li, i) => {
+    li.classList.toggle('passed', i < at);
+    li.classList.toggle('current', i === at);
+    if (i === at) li.firstElementChild.setAttribute('aria-current', 'location');
+    else li.firstElementChild.removeAttribute('aria-current');
+  });
+}
+
+function wayToggle(open) {
+  wayList.hidden = !open;
+  wayButton.setAttribute('aria-expanded', open);
+  wayUpdate();
+}
+
+wayButton.addEventListener('click', () => wayToggle(wayList.hidden));
+wayList.addEventListener('click', e => { if (e.target.closest('a')) wayToggle(false); });
+addEventListener('click', e => { if (!way.contains(e.target)) wayToggle(false); });
+addEventListener('keydown', e => {
+  if (e.key === 'Escape' && !wayList.hidden) { wayToggle(false); wayButton.focus(); }
+});
+addEventListener('scroll', wayUpdate, { passive: true });
+addEventListener('resize', wayUpdate);
+wayUpdate();

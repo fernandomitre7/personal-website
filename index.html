@@ -272,6 +272,21 @@
       </div>
     </section>
   </main>
+
+  <nav class="way" aria-label="Sections">
+    <ol id="way-list" hidden>
+      <li><a href="#top">Intro</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#ventures">My own ventures</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#spoken-languages">Spoken Languages</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+    <button type="button" aria-expanded="false" aria-controls="way-list" aria-label="Sections">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path class="way-menu" d="M5 7h14M5 12h14M5 17h14"/><path class="way-close" d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </nav>
 </div>
 <script>
   addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
