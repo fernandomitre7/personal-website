@@ -27,17 +27,18 @@
 </head>
 <body>
 <div class="page">
+  <svg id="thread" aria-hidden="true"><path id="thread-path"/></svg>
   <nav class="lang" aria-label="Language">
     <span aria-current="true">English</span>
     <a href="#" hreflang="es" lang="es">Español</a>
   </nav>
 
   <main>
-    <h1>Fernando Mitre</h1>
+    <h1>Fernando Mitre<span class="dot start"></span></h1>
 
     <div class="story">
       <div>
-        <p>I'm from Saltillo, Coahuila, in Mexico. I studied Digital Systems and Robotics Engineering at Tec de Monterrey, a very low-level, electronics-heavy degree, and somewhere along the way I fell in love with software.</p>
+        <p>I'm from Mexico (Saltillo, Coahuila). I studied Digital Systems and Robotics Engineering at Tec de Monterrey, a very low-level, electronics-heavy degree, and somewhere along the way I fell in love with software.</p>
         <p>Software took me to Monterrey, Querétaro, Tijuana, San Diego and Silicon Valley, where I've spent the last six years at Meta, in a product-focused team making the WhatsApp Business App more useful to businesses. I've been lucky to work on many different business-focused products, learning how to build a product from each of them.</p>
         <p>I also like starting things of my own. I co-owned a restaurant-bar in Saltillo and co-founded a non-profit that used mobile technology to improve citizen participation.</p>
       </div>
@@ -45,12 +46,20 @@
     </div>
 
     <ul class="places" aria-label="Places I have lived, in order">
-      <li>Saltillo</li><li>Monterrey</li><li>Querétaro</li><li>Tijuana</li><li>San Diego</li><li>Silicon Valley</li>
+      <li class="stop flip" style="--x:72.31%;--y:67.05%;--dx:-4px;--dy:3px"><span class="dot"></span><b>Saltillo</b></li>
+      <li class="stop " style="--x:74.43%;--y:65.86%;--dx:5px;--dy:-3px"><span class="dot"></span><b>Monterrey</b></li>
+      <li class="stop " style="--x:74.18%;--y:90.05%;--dx:0px;--dy:0px"><span class="dot"></span><b>Querétaro</b></li>
+      <li class="stop " style="--x:22.95%;--y:33.19%;--dx:0px;--dy:8px"><span class="dot"></span><b>Tijuana</b></li>
+      <li class="stop " style="--x:22.58%;--y:32.29%;--dx:0px;--dy:-8px"><span class="dot"></span><b>San Diego</b></li>
+      <li class="stop " style="--x:7.14%;--y:9.76%;--dx:0px;--dy:0px"><span class="dot"></span><b>Silicon Valley</b></li>
     </ul>
 
+
     <section aria-labelledby="education">
+      <span class="dot"></span>
       <h2 id="education">Education</h2>
       <div class="entry">
+        <span class="dot"></span>
         <div class="date">2008–2013</div>
         <div class="body">
           <p class="role">B.S. Digital Systems and Robotics Engineering</p>
@@ -58,6 +67,7 @@
         </div>
       </div>
       <div class="entry">
+        <span class="dot"></span>
         <div class="date">2012</div>
         <div class="body">
           <p class="role">International exchange</p>
@@ -65,6 +75,7 @@
         </div>
       </div>
       <div class="entry">
+        <span class="dot"></span>
         <div class="date">Nov 2022</div>
         <div class="body">
           <p class="role">Product Management Accelerated Program</p>
@@ -74,24 +85,27 @@
     </section>
 
     <section aria-labelledby="experience">
+      <span class="dot"></span>
       <h2 id="experience">Experience</h2>
 
       <article class="entry">
+        <span class="dot"></span>
         <div class="date">Sep 2020–now</div>
         <div class="body">
           <p class="role">Meta <span>Senior Software Engineer</span></p>
           <p class="where">Menlo Park, California</p>
 
           <div class="project">
+              <span class="dot"></span>
             <h3>WhatsApp Business subscriptions</h3>
-            <p>Meta Verified and Meta One are paid plans that give businesses extra features on WhatsApp. I worked on tracking how much of each limited benefit a business has used, and on the custom web page that helps customers find a business and contact it.</p>
+            <p>I work on the <a href="https://faq.whatsapp.com/3872729742954601">Meta Verified</a> and <a href="https://whatsappbusiness.com/products/business-app-meta-one/">Meta One</a> subscriptions, which give businesses extra features in the WhatsApp Business App. My work spans the whole stack: the subscription infrastructure itself, plus some of the benefits, including the <a href="https://faq.whatsapp.com/3240917596147164">custom web page</a> and the metering behind benefits that have a quota or limit.</p>
             <details>
               <summary>Technical detail</summary>
               <div class="layer">
                 <ul>
                   <li>Designed and built the metering service that enforces benefit quotas across multiple providers, for a subscription used by hundreds of thousands of businesses. Scoped the work across 3 engineers.</li>
                   <li>Integrated metering into the full subscription lifecycle, including grace periods, plan changes and cancellations.</li>
-                  <li>Built the backend for custom business web pages in one month for alpha: database schema, CRUD APIs, rate limiting, lifecycle management and billing integration. 85% test coverage, no critical production issues, and over 65% adoption among eligible subscribers.</li>
+                  <li>Built the backend for custom business web pages in one month for alpha: database schema, CRUD APIs, rate limiting, lifecycle management and billing integration. No critical production issues.</li>
                 </ul>
                 <p class="stack"><b>Used:</b> Hack/PHP, Erlang, distributed counting for rate limits, TTL-based entity lifecycle.</p>
               </div>
@@ -99,6 +113,7 @@
           </div>
 
           <div class="project">
+              <span class="dot"></span>
             <h3>Business Broadcast in the WhatsApp Business App</h3>
             <p>Lets a business send a message to many customers at once, for a fee. I worked on pricing and billing, and on a way to check the numbers that respected privacy limits, which cleared the product for wide release.</p>
             <details>
@@ -115,6 +130,7 @@
           </div>
 
           <div class="project">
+              <span class="dot"></span>
             <h3>Subscription infrastructure for the WhatsApp consumer app</h3>
             <p>Led a cross-functional team building WhatsApp's first consumer-subscription infrastructure: the systems that let someone buy a subscription in the app and keep it active.</p>
             <details>
@@ -131,6 +147,7 @@
           </div>
 
           <div class="project">
+              <span class="dot"></span>
             <h3>Messaging infrastructure across mobile apps</h3>
             <p>My first years at Meta: shared parts of messaging used by several apps, such as group membership and how apps manage storage on a phone.</p>
             <details>
@@ -148,6 +165,7 @@
       </article>
 
       <article class="entry">
+        <span class="dot"></span>
         <div class="date">Oct 2019–Sep 2020</div>
         <div class="body">
           <p class="role">KaiOS Technologies <span>Full-Stack Software Engineer</span></p>
@@ -167,6 +185,7 @@
       </article>
 
       <article class="entry">
+        <span class="dot"></span>
         <div class="date">Oct 2016–Sep 2019</div>
         <div class="body">
           <p class="role">Sonata Services <span>KaiOS outsourcing partner</span></p>
@@ -180,6 +199,7 @@
       </article>
 
       <article class="entry">
+        <span class="dot"></span>
         <div class="date">2014–2016</div>
         <div class="body">
           <p class="role">Software Next Door</p>
@@ -193,6 +213,7 @@
       </article>
 
       <article class="entry">
+        <span class="dot"></span>
         <div class="date">2012–2013</div>
         <div class="body">
           <p class="role">MSights</p>
@@ -207,8 +228,10 @@
     </section>
 
     <section aria-labelledby="ventures">
+      <span class="dot"></span>
       <h2 id="ventures">My own ventures</h2>
       <article class="entry">
+        <span class="dot"></span>
         <div class="date">2019</div>
         <div class="body">
           <p class="role">Capital SLW <span>Restaurant-bar co-owner</span></p>
@@ -217,6 +240,7 @@
         </div>
       </article>
       <article class="entry">
+        <span class="dot"></span>
         <div class="date">2017–2018</div>
         <div class="body">
           <p class="role">YoGob.mx <span>Co-founder</span></p>
@@ -227,6 +251,7 @@
     </section>
 
     <section aria-labelledby="skills">
+      <span class="dot"></span>
       <h2 id="skills">Skills</h2>
       <dl class="skills">
         <dt>Languages</dt><dd>Hack/PHP, Erlang, Swift, Objective-C, Go, TypeScript, JavaScript, Python, Java, C++, SQL</dd>
@@ -239,6 +264,7 @@
     </section>
 
     <section aria-labelledby="contact">
+      <span class="dot"></span>
       <h2 id="contact">Contact</h2>
       <div class="contact">
         <p>Email address coming soon. <a href="https://linkedin.com/in/fernandomitre7">LinkedIn</a></p>
@@ -249,6 +275,7 @@
           <input id="email" name="email" type="email" autocomplete="email" required>
           <label for="message">Message</label>
           <textarea id="message" name="message" required></textarea>
+          <span class="dot end"></span>
           <button type="submit" disabled>Send message</button>
           <p class="note">Preview: this form isn't connected yet.</p>
         </form>
@@ -259,5 +286,6 @@
 <script>
   addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
 </script>
+<script src="thread.js"></script>
 </body>
 </html>
