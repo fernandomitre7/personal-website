@@ -167,3 +167,9 @@ addEventListener('keydown', e => {
 addEventListener('scroll', wayUpdate, { passive: true });
 addEventListener('resize', wayUpdate);
 wayUpdate();
+
+// The paragraph above each panel also toggles it, except on its links or when selecting text.
+document.querySelectorAll('.lead').forEach(lead => lead.addEventListener('click', e => {
+  if (e.target.closest('a') || !getSelection().isCollapsed) return;
+  lead.nextElementSibling.open = !lead.nextElementSibling.open;
+}));
