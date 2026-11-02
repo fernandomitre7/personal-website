@@ -5,6 +5,8 @@ const svg = document.getElementById('thread');
 const path = document.getElementById('thread-path');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Most the line may draw per pixel scrolled. Higher is faster.
+const MAX_RATE = 10, MAX_RATE_NARROW = 8;
 let total = 0, cur = 0, stops = [], table = [];
 
 function centre(el) {
@@ -88,9 +90,11 @@ function build() {
 
   // Length-to-page-height table: how far the line may be drawn for a given scroll.
   table = [];
+  // Where the route doubles back, as on the map, it would otherwise be drawn all at once.
+  const rate = narrow ? MAX_RATE_NARROW : MAX_RATE;
   let maxY = -Infinity;
   for (let l = 0; l <= total; l += 12) {
-    maxY = Math.max(maxY, path.getPointAtLength(l).y);
+    maxY = Math.max(maxY + 12 / rate, path.getPointAtLength(l).y);
     table.push({ l, maxY });
   }
   path.style.strokeDasharray = total;
