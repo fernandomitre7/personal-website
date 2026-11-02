@@ -21,7 +21,7 @@ h1 { margin: clamp(2.5rem, 8vw, 5.5rem) 0 2.5rem; font-size: clamp(3rem, 11.5vw,
 
 .story { display: grid; grid-template-columns: minmax(0, var(--measure)) minmax(11rem, 17rem); gap: clamp(2rem, 5vw, 4.5rem); justify-content: space-between; align-items: start; }
 .story p { margin: 0 0 1.1em; font-size: 1.1875rem; line-height: 1.65; }
-.photo { aspect-ratio: 4 / 5; margin: .4rem 0 0; display: grid; place-items: center; padding: 1rem; background: #E4E7EE; border: 1px dashed var(--slate); color: var(--slate); font: 400 .875rem/1.4 var(--sans); text-align: center; }
+.photo { aspect-ratio: 4 / 5; margin: .4rem 0 0; display: grid; place-items: center; padding: 1rem; background: var(--tint); border: 1px dashed var(--slate); color: var(--slate); font: 400 .875rem/1.4 var(--sans); text-align: center; }
 
 section { margin-top: clamp(3.5rem, 8vw, 5.5rem); }
 h2 { margin: 0 0 1.75rem calc(var(--margin) + var(--gap)); font-size: 1.75rem; font-weight: 700; font-stretch: 110%; line-height: 1.2; }
@@ -85,9 +85,7 @@ button:disabled { opacity: .6; cursor: not-allowed; }
   .entry, .project { break-inside: avoid; }
 }
 
-/* ---- prototype: connect the dots ---- */
-.photo { background:var(--tint); }
-input, textarea { background:#fff; }
+/* Connected line and route map */
 
 :root { --gap:3rem; --line-x:calc(var(--margin) + var(--gap) / 2); --gut:calc(var(--gap) / 2); --dot-size:.95rem; }
 .page { position:relative; z-index:0; }
