@@ -9,6 +9,7 @@
 <link rel="alternate" hreflang="en" href="https://fernandomitre.com/">
 <link rel="alternate" hreflang="es" href="https://fernandomitre.com/es/">
 <link rel="preload" href="../fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../styles.css">
 <script type="application/ld+json">
 {
@@ -50,7 +51,7 @@
         <p>A lo largo de mi carrera he trabajado en diferentes tipos de software para negocios, y con cada experiencia he aprendido a desarrollar un mejor producto.</p>
         <p>También me gusta emprender por mi cuenta. Fui copropietario de un restaurante-bar en Saltillo y cofundé una organización sin fines de lucro donde intenté mejorar la participación ciudadana con tecnología móvil.</p>
       </div>
-      <img class="photo" src="../images/fernando.webp" width="800" height="1000" alt="Fernando Mitre sonriendo en un acantilado de la costa, con una cámara en la mano y el mar y colinas verdes detrás">
+      <img class="photo" src="../images/fernando.webp" srcset="../images/fernando-480.webp 480w, ../images/fernando.webp 800w" sizes="(max-width: 44rem) 9rem, 17rem" width="800" height="1000" alt="Fernando Mitre sonriendo en un acantilado de la costa, con una cámara en la mano y el mar y colinas verdes detrás">
     </div>
 
     <ul class="places" aria-label="Lugares donde he vivido, en orden">
@@ -276,7 +277,7 @@
   </main>
 
   <nav class="way" aria-label="Secciones">
-    <ol id="way-list" hidden>
+    <ol id="way-list" popover>
       <li><a href="#top">Inicio</a></li>
       <li><a href="#educacion">Educación</a></li>
       <li><a href="#experiencia">Experiencia</a></li>
@@ -285,14 +286,11 @@
       <li><a href="#idiomas">Idiomas</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ol>
-    <button type="button" aria-expanded="false" aria-controls="way-list" aria-label="Secciones">
+    <button type="button" popovertarget="way-list" aria-label="Secciones">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path class="way-menu" d="M5 7h14M5 12h14M5 17h14"/><path class="way-close" d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </nav>
 </div>
-<script>
-  addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
-</script>
 <script src="../thread.js"></script>
 </body>
 </html>

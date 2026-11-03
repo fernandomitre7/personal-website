@@ -9,6 +9,7 @@
 <link rel="alternate" hreflang="en" href="https://fernandomitre.com/">
 <link rel="alternate" hreflang="es" href="https://fernandomitre.com/es/">
 <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/literata.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
 {
@@ -50,7 +51,7 @@
         <p>Throughout my career I've worked on different types of business software, learning to build a better product with each experience.</p>
         <p>I also like starting things of my own. I co-owned a restaurant-bar in Saltillo and co-founded a non-profit where I tried to improve citizen participation with mobile technology.</p>
       </div>
-      <img class="photo" src="images/fernando.webp" width="800" height="1000" alt="Fernando Mitre smiling on a coastal cliff, holding a camera, with the ocean and green hills behind him">
+      <img class="photo" src="images/fernando.webp" srcset="images/fernando-480.webp 480w, images/fernando.webp 800w" sizes="(max-width: 44rem) 9rem, 17rem" width="800" height="1000" alt="Fernando Mitre smiling on a coastal cliff, holding a camera, with the ocean and green hills behind him">
     </div>
 
     <ul class="places" aria-label="Places I have lived, in order">
@@ -276,7 +277,7 @@
   </main>
 
   <nav class="way" aria-label="Sections">
-    <ol id="way-list" hidden>
+    <ol id="way-list" popover>
       <li><a href="#top">Intro</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -285,14 +286,11 @@
       <li><a href="#spoken-languages">Spoken Languages</a></li>
       <li><a href="#contact">Contact</a></li>
     </ol>
-    <button type="button" aria-expanded="false" aria-controls="way-list" aria-label="Sections">
+    <button type="button" popovertarget="way-list" aria-label="Sections">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path class="way-menu" d="M5 7h14M5 12h14M5 17h14"/><path class="way-close" d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </nav>
 </div>
-<script>
-  addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => d.open = true));
-</script>
 <script src="thread.js"></script>
 </body>
 </html>
