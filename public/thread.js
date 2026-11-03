@@ -1,7 +1,6 @@
 const root = document.documentElement;
 root.classList.add('js');
 const page = document.querySelector('.page');
-const svg = document.getElementById('thread');
 const path = document.getElementById('thread-path');
 // Lookups on one long path walk it from the start, so each segment is measured on its own.
 const measure = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -12,7 +11,7 @@ const MAX_RATE = 10, MAX_RATE_NARROW = 8;
 let total = 0, cur = 0, floor = 0, stops = [], table = [];
 
 function build() {
-  const narrow = innerWidth < 704;
+  const narrow = matchMedia('(max-width: 44rem)').matches;
   const wiggle = narrow ? 5 : 16;
   const origin = page.getBoundingClientRect();
   const centre = el => {
@@ -112,7 +111,6 @@ function build() {
   });
   path.style.strokeDasharray = total;
   path.style.strokeDashoffset = total - cur;
-  svg.style.height = page.scrollHeight + 'px';
 }
 
 function target() {
@@ -146,14 +144,13 @@ document.fonts.ready.then(rebuild);
 rebuild();
 
 const way = document.querySelector('.way');
-const wayButton = way.querySelector('button');
 const wayList = way.querySelector('ol');
 const wayItems = [...wayList.children];
 wayItems.forEach((li, i) => li.style.setProperty('--i', i));
 const wayTargets = wayItems.map(li => document.querySelector(li.firstElementChild.hash));
 
 function wayUpdate() {
-  way.classList.toggle('show', scrollY > innerHeight * .6 || !wayList.hidden);
+  way.classList.toggle('show', scrollY > innerHeight * .6 || wayList.matches(':popover-open'));
   let at = 0;
   wayTargets.forEach((el, i) => { if (el && el.getBoundingClientRect().top <= innerHeight * .4) at = i; });
   if (scrollY + innerHeight >= document.documentElement.scrollHeight - 4) at = wayItems.length - 1;
@@ -165,18 +162,8 @@ function wayUpdate() {
   });
 }
 
-function wayToggle(open) {
-  wayList.hidden = !open;
-  wayButton.setAttribute('aria-expanded', open);
-  wayUpdate();
-}
-
-wayButton.addEventListener('click', () => wayToggle(wayList.hidden));
-wayList.addEventListener('click', e => { if (e.target.closest('a')) wayToggle(false); });
-addEventListener('click', e => { if (!way.contains(e.target)) wayToggle(false); });
-addEventListener('keydown', e => {
-  if (e.key === 'Escape' && !wayList.hidden) { wayToggle(false); wayButton.focus(); }
-});
+wayList.addEventListener('click', e => { if (e.target.closest('a')) wayList.hidePopover(); });
+wayList.addEventListener('toggle', wayUpdate);
 addEventListener('scroll', wayUpdate, { passive: true });
 addEventListener('resize', wayUpdate);
 wayUpdate();

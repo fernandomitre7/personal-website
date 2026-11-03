@@ -51,7 +51,7 @@ try {
     await send('Page.navigate', { url: pathToFileURL(join(root, page)).href });
     await loaded;
     await send('Runtime.evaluate', {
-      expression: `document.fonts.ready.then(() => document.querySelectorAll('details').forEach(d => d.open = true))`,
+      expression: 'document.fonts.ready.then(() => {})',
       awaitPromise: true,
     });
     const { data } = await send('Page.printToPDF', { preferCSSPageSize: true, printBackground: false });
