@@ -55,7 +55,7 @@ details[open] summary::after { background: linear-gradient(var(--ink), var(--ink
 /* The negative left inset keeps the branch into the thread inside the clip. */
 @keyframes unroll { from { clip-path: inset(0 0 100% -3rem); opacity: 0; } to { clip-path: inset(0 0 0 -3rem); opacity: 1; } }
 @media screen and (prefers-reduced-motion: no-preference) {
-  details[open] .layer { animation: unroll .24s ease-out; }
+  details[open]::details-content { animation: unroll .24s ease-out; }
 }
 
 .layer { margin: .6rem 0 .5rem; padding: 1.5rem clamp(1.25rem, 3vw, 2rem); background: var(--indigo); color: var(--mist); font: 400 .9688rem/1.6 var(--sans); border-top: 3px solid var(--marigold); }
