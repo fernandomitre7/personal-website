@@ -115,6 +115,7 @@ section > .dot { left: var(--line-x); top: .95rem; --dot-size: 1.2rem; }
 .way .current a { color: #fff; font-weight: 700; }
 .way .current a::before { box-shadow: 0 0 0 3px rgb(201 162 39 / .35); }
 @media (hover: hover) { .way a:hover { color: #fff; text-decoration: underline; text-underline-offset: .2em; } }
+@supports not selector(:popover-open) { .js .way { display: none; } }
 /* Opening: the thread leaves the button, the card unrolls from it, then the route so far draws in. */
 .way:has(:popover-open) button::before { content: ""; position: absolute; left: 50%; bottom: 100%; width: 3px; height: calc(.5rem + 4px); margin-left: -1.5px; background: var(--green); transform-origin: bottom; animation: way-thread .14s ease-out backwards; }
 .way ol:popover-open { animation: way-card .3s .12s cubic-bezier(.2,.7,.2,1) backwards; }

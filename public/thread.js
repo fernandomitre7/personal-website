@@ -143,30 +143,33 @@ new ResizeObserver(rebuild).observe(page);
 document.fonts.ready.then(rebuild);
 rebuild();
 
-const way = document.querySelector('.way');
-const wayList = way.querySelector('ol');
-const wayItems = [...wayList.children];
-wayItems.forEach((li, i) => li.style.setProperty('--i', i));
-const wayTargets = wayItems.map(li => document.querySelector(li.firstElementChild.hash));
+// Older browsers without popover go without the section menu; CSS hides it too.
+if ('popover' in HTMLElement.prototype) {
+  const way = document.querySelector('.way');
+  const wayList = way.querySelector('ol');
+  const wayItems = [...wayList.children];
+  wayItems.forEach((li, i) => li.style.setProperty('--i', i));
+  const wayTargets = wayItems.map(li => document.querySelector(li.firstElementChild.hash));
 
-function wayUpdate() {
-  way.classList.toggle('show', scrollY > innerHeight * .6 || wayList.matches(':popover-open'));
-  let at = 0;
-  wayTargets.forEach((el, i) => { if (el && el.getBoundingClientRect().top <= innerHeight * .4) at = i; });
-  if (scrollY + innerHeight >= document.documentElement.scrollHeight - 4) at = wayItems.length - 1;
-  wayItems.forEach((li, i) => {
-    li.classList.toggle('passed', i < at);
-    li.classList.toggle('current', i === at);
-    if (i === at) li.firstElementChild.setAttribute('aria-current', 'location');
-    else li.firstElementChild.removeAttribute('aria-current');
-  });
+  function wayUpdate() {
+    way.classList.toggle('show', scrollY > innerHeight * .6 || wayList.matches(':popover-open'));
+    let at = 0;
+    wayTargets.forEach((el, i) => { if (el && el.getBoundingClientRect().top <= innerHeight * .4) at = i; });
+    if (scrollY + innerHeight >= document.documentElement.scrollHeight - 4) at = wayItems.length - 1;
+    wayItems.forEach((li, i) => {
+      li.classList.toggle('passed', i < at);
+      li.classList.toggle('current', i === at);
+      if (i === at) li.firstElementChild.setAttribute('aria-current', 'location');
+      else li.firstElementChild.removeAttribute('aria-current');
+    });
+  }
+
+  wayList.addEventListener('click', e => { if (e.target.closest('a')) wayList.hidePopover(); });
+  wayList.addEventListener('toggle', wayUpdate);
+  addEventListener('scroll', wayUpdate, { passive: true });
+  addEventListener('resize', wayUpdate);
+  wayUpdate();
 }
-
-wayList.addEventListener('click', e => { if (e.target.closest('a')) wayList.hidePopover(); });
-wayList.addEventListener('toggle', wayUpdate);
-addEventListener('scroll', wayUpdate, { passive: true });
-addEventListener('resize', wayUpdate);
-wayUpdate();
 
 // The paragraph above each panel also toggles it, except on its links or when selecting text.
 document.querySelectorAll('.lead').forEach(lead => lead.addEventListener('click', e => {
