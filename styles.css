@@ -64,12 +64,6 @@ dd { margin: 0; }
 
 .contact { margin-left: calc(var(--margin) + var(--gap)); max-width: var(--measure); }
 .contact > p { margin: 0 0 1.5rem; }
-label { display: block; margin: 1.1rem 0 .3rem; font-size: .9375rem; font-weight: 600; }
-input, textarea { width: 100%; padding: .7rem .8rem; background: #fff; border: 1px solid var(--slate); border-radius: 2px; color: var(--ink); font: 400 1rem/1.5 var(--serif); }
-textarea { min-height: 9rem; resize: vertical; }
-button { margin-top: 1.25rem; padding: .7rem 1.4rem; background: var(--indigo); border: 0; border-radius: 2px; color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; }
-button:disabled { opacity: .6; cursor: not-allowed; }
-.note { margin: .9rem 0 0; font: 400 .9375rem/1.5 var(--sans); color: var(--slate); }
 
 @media (max-width: 44rem) {
   :root { --margin: 0rem; --gap: 0rem; }
@@ -83,7 +77,7 @@ button:disabled { opacity: .6; cursor: not-allowed; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 @media print {
   body { background: #fff; font-size: 10.5pt; }
-  .lang, .contact form, .photo, summary { display: none; }
+  .lang, .photo, summary { display: none; }
   .story { display: block; }
   h1 { margin-top: 0; font-size: 34pt; }
   .layer { background: none; color: var(--ink); border: 0; padding: 0; }
@@ -114,8 +108,8 @@ section > .dot { left:var(--line-x); top:.95rem; --dot-size:1.2rem; }
 .layer::after { content:""; position:absolute; top:calc(1.5rem - 3px); left:-5px; width:9px; height:9px; border-radius:50%; background:var(--marigold); }
 
 
-.contact form { position:relative; }
-.dot.end { left:calc(var(--gut) * -1); bottom:3.75rem; --dot-size:1.2rem; }
+.contact > p { position:relative; }
+.dot.end { left:calc(var(--gut) * -1); top:.8em; --dot-size:1.2rem; }
 
 .places { position:relative; display:block; list-style:none; font-family:var(--sans); margin:clamp(4rem, 7vw, 5.5rem) 0 0 calc(var(--margin) + var(--gap)); padding:0; aspect-ratio:1.354; font-size:clamp(.8125rem, 1.7vw, 1.0625rem); font-weight:600; font-stretch:105%; color:var(--indigo); }
 .places::before { content:""; position:absolute; inset:0; z-index:-1; background:url(map.svg) center / 100% 100% no-repeat;
