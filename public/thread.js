@@ -7,7 +7,7 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Most the line may draw per pixel scrolled. Higher is faster.
 const MAX_RATE = 10, MAX_RATE_NARROW = 8;
-let total = 0, cur = 0, stops = [], table = [];
+let total = 0, cur = 0, floor = 0, stops = [], table = [];
 
 function centre(el) {
   const p = page.getBoundingClientRect(), r = el.getBoundingClientRect();
@@ -94,9 +94,18 @@ function build() {
   const rate = narrow ? MAX_RATE_NARROW : MAX_RATE;
   let maxY = -Infinity;
   for (let l = 0; l <= total; l += 12) {
-    maxY = Math.max(maxY + 12 / rate, path.getPointAtLength(l).y);
-    table.push({ l, maxY });
+    const y = path.getPointAtLength(l).y;
+    maxY = Math.max(maxY + 12 / rate, y);
+    table.push({ l, maxY, y });
   }
+  // An open panel's branch starts on the line, and the line always reaches the lowest one.
+  floor = 0;
+  document.querySelectorAll('details[open] .layer').forEach(layer => {
+    const y = top(layer) + parseFloat(getComputedStyle(layer, '::before').top);
+    floor = table.find(e => e.y >= y).l;
+    const left = layer.getBoundingClientRect().left - page.getBoundingClientRect().left;
+    layer.style.setProperty('--branch-x', `${path.getPointAtLength(floor).x - left}px`);
+  });
   path.style.strokeDasharray = total;
   path.style.strokeDashoffset = total - cur;
   svg.style.height = page.scrollHeight + 'px';
@@ -108,7 +117,7 @@ function target() {
   if (scrollY + innerHeight >= document.documentElement.scrollHeight - 4) return total;
   let lo = 0, hi = table.length - 1;
   while (lo < hi) { const m = (lo + hi + 1) >> 1; table[m].maxY <= y ? lo = m : hi = m - 1; }
-  return table[lo] ? table[lo].l : 0;
+  return Math.max(table[lo] ? table[lo].l : 0, floor);
 }
 
 function paint() {

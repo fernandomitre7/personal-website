@@ -40,16 +40,22 @@ h3 { margin: 0; font-size: 1.0625rem; font-weight: 650; line-height: 1.4; }
 .project > p { margin: .3rem 0 0; max-width: var(--measure); }
 
 .js .lead { cursor: pointer; }
+.lead { transition: background-color .15s ease, box-shadow .15s ease; }
 details { margin-top: .35rem; }
-summary { display: flex; width: fit-content; align-items: center; gap: .35rem; font: 600 .9375rem/1.2 var(--sans); color: var(--slate); cursor: pointer; list-style: none; transition: color .15s ease; }
+summary { display: flex; max-width: var(--measure); align-items: center; gap: .35rem; font: 600 .9375rem/1.2 var(--sans); color: var(--slate); cursor: pointer; list-style: none; transition: color .15s ease, background-color .15s ease, box-shadow .15s ease; }
 summary::-webkit-details-marker { display: none; }
-summary::after { content: ""; width: 1.05em; height: 1.05em; border-radius: 50%; background: linear-gradient(var(--ink), var(--ink)) center / .55em 2px no-repeat, linear-gradient(var(--ink), var(--ink)) center / 2px .55em no-repeat, var(--marigold); transition: box-shadow .15s ease; }
+summary::after { content: ""; width: 1.05em; height: 1.05em; border-radius: 50%; background: linear-gradient(var(--ink), var(--ink)) center / .55em 2px no-repeat, linear-gradient(var(--ink), var(--ink)) center / 2px .55em no-repeat, var(--marigold); }
 .when-open, details[open] .when-closed { display: none; }
 details[open] .when-open { display: inline; }
 details[open] summary::after { background: linear-gradient(var(--ink), var(--ink)) center / .55em 2px no-repeat, var(--marigold); }
 @media (hover: hover) {
-  summary:hover, .lead:hover + details summary { color: var(--ink); }
-  summary:hover::after, .lead:hover + details summary::after { box-shadow: 0 0 0 3px var(--tint); }
+  summary:hover, .js .lead:hover + details summary { color: var(--ink); }
+  summary:hover, .js .lead:hover, .js .lead:hover + details summary, .js .lead:has(+ details summary:hover) { background-color: var(--tint); box-shadow: 0 0 0 .5rem var(--tint); }
+}
+/* The negative left inset keeps the branch into the thread inside the clip. */
+@keyframes unroll { from { clip-path: inset(0 0 100% -3rem); opacity: 0; } to { clip-path: inset(0 0 0 -3rem); opacity: 1; } }
+@media screen and (prefers-reduced-motion: no-preference) {
+  details[open] .layer { animation: unroll .24s ease-out; }
 }
 
 .layer { margin: .6rem 0 .5rem; padding: 1.5rem clamp(1.25rem, 3vw, 2rem); background: var(--indigo); color: var(--mist); font: 400 .9688rem/1.6 var(--sans); border-top: 3px solid var(--marigold); }
@@ -106,7 +112,7 @@ section > .dot { left:var(--line-x); top:.95rem; --dot-size:1.2rem; }
 .project { position:relative; }
 .project > .dot { left:calc(var(--gut) * -1); top:.75rem; --dot-size:.7rem; }
 .layer { position:relative; }
-.layer::before { content:""; position:absolute; top:1.5rem; left:calc(var(--gut) * -1); width:var(--gut); height:3px; background:var(--line); }
+.layer::before { content:""; position:absolute; top:1.5rem; left:var(--branch-x, calc(var(--gut) * -1)); right:100%; height:3px; background:var(--line); }
 .layer::after { content:""; position:absolute; top:calc(1.5rem - 3px); left:-5px; width:9px; height:9px; border-radius:50%; background:var(--marigold); }
 
 
